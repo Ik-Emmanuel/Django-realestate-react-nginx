@@ -8,7 +8,7 @@ urlpatterns = [
     path("api/v1/auth/", include("djoser.urls")),  #http://localhost:8000/api/v1/auth/users/
     path("api/v1/auth/", include("djoser.urls.jwt")), #login users at http://localhost:8000/api/v1/auth/jwt/create/
     path("api/v1/profile/", include("apps.profiles.urls")),
-    # path("api/v1/properties/", include("apps.properties.urls")),
+    path("api/v1/properties/", include("apps.properties.urls")),
     # path("api/v1/ratings/", include("apps.ratings.urls")),
     # path("api/v1/enquiries/", include("apps.enquiries.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
