@@ -11,7 +11,7 @@ services:
             - static_volume:/app/staticfiles
             - media_volume:/app/mediafiles
 
-        #commented out cos we will serve with nigx
+        #commented out cos we will serve with nginx
         # ports:
         #     - "8001:8000"
         # expose:
@@ -37,8 +37,43 @@ services:
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
             - POSTGRES_DB=${POSTGRES_DB}
         networks:
+            - nuspace-nets	
+    redis:
+        image: redis:5-alpine
+        networks:
             - nuspace-nets
 
+    celery_worker:
+        build:
+            context: .
+            dockerfile: ./docker/local/django/Dockerfile
+        command: /start-celeryworker
+        volumes:
+            - .:/app
+        env_file:
+            - .env
+        depends_on:
+            - redis
+            - postgres-db
+        networks:
+            - nuspace-nets
+
+    flower:
+        build:
+            context: .
+            dockerfile: ./docker/local/django/Dockerfile
+        command: /start-flower
+        volumes:
+            - .:/app
+        env_file:
+            - .env
+        ports:
+            - "5557:5555"
+        depends_on:
+            - redis
+            - postgres-db
+        networks:
+            - nuspace-nets
             
     nginx:
         restart: always
