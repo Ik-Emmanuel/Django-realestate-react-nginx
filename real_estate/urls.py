@@ -10,8 +10,10 @@ urlpatterns = [
     path("api/v1/profile/", include("apps.profiles.urls")),
     path("api/v1/properties/", include("apps.properties.urls")),
     path("api/v1/ratings/", include("apps.ratings.urls")),
-    path("api/v1/enquiries/", include("apps.enquiries.urls")),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("api/v1/enquiries/", include("apps.enquiries.urls")),]
+
+#for local host 
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
