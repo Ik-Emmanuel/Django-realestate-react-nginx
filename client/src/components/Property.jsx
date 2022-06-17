@@ -10,26 +10,26 @@ const Property = ({ property }) => {
 	}
 
 	return (
-		<Card style={{ width: "18rem" }}>
+		<Card style={{ width: "18rem" , marginLeft:"4em"}}>
 			<Badge
 				bg="success"
-				className="position-absolute top-0 start-100 translate-middle rounded-pill"
-			>
+				className="position-absolute top-0 start-100 translate-middle rounded-pill">
 				{property.advert_type}
 			</Badge>
 			<Link to={`/property/${property.slug}`}>
-				<Card.Img src={property.cover_photo} variant="top" />
+				<Card.Img src={"http://localhost:8000" + property.cover_photo } variant="top" />
 			</Link>
 			<Card.Title className="property-price">
 				${numberWithCommas(Number(property.price))}
 			</Card.Title>
 			<Card.Body>
 				<Card.Title as="h4">
-					<strong>{property.title}</strong>
+					<strong>  {property.title}</strong>
 				</Card.Title>
 
 				<Card.Text as="p">
-					{property.description.substring(0, 70)}...
+				
+					{property.description.substring(0, 200)}...
 				</Card.Text>
 				<hr />
 				<Row>
