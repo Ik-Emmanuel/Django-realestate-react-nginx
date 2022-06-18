@@ -12,7 +12,7 @@ const Title = ({ title, description, keywords }) => {
 };
 
 Title.defaultProps = {
-	title: "Welcome to Nuspace Real Estate",
+	title: "Welcome to NewSpace Real Estate",
 	description: "We sell the best properties in town",
 	keywords: "land, real estate, best value",
 };

@@ -40,7 +40,7 @@ const PropertiesPage = () => {
 			<Container>
 				<Row>
 					<Col className="mg-top text-center">
-						<h1>Available properties</h1>
+						<h2>Our Available properties</h2>
 						<hr className="hr-text" />
 					</Col>
 				</Row>

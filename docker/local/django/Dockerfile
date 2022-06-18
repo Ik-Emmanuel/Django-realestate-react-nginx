@@ -6,7 +6,7 @@ RUN mkdir $APP_HOME/staticfiles
 WORKDIR $APP_HOME
 
 # LABEL maintainer='youremail@gmail.com'
-LABEL decription="Development image for Nuspace Real Estate Project"
+LABEL decription="Development image for NewSpace Real Estate Project"
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

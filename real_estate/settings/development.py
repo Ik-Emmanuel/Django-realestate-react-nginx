@@ -1,15 +1,22 @@
 from .base import *
 
-EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
+
+
+MY_ENV = "local"
+
+
+EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"  if MY_ENV == "docker" else "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = env("EMAIL_HOST")
+
+
+EMAIL_HOST = env("EMAIL_HOST") 
 EMAIL_USE_TLS = True
 EMAIL_PORT = env("EMAIL_PORT")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "info@nuspace-realestate.com"
-DOMAIN = env("DOMAIN")
-SITE_NAME = "Nuspace Real Estate"
+DOMAIN = env("DOMAIN") if MY_ENV == "docker" else env("DOMAIN_LOCAL")
+SITE_NAME = "NewSpace Real Estate"
 
 
 
@@ -19,7 +26,7 @@ DATABASES = {
         "NAME": env("POSTGRES_DB"),
         "USER": env("POSTGRES_USER"),
         "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": env("POSTGRES_HOST"),
+        "HOST": env("POSTGRES_HOST") if MY_ENV == "docker" else env("POSTGRES_HOST_LOCAL"),
         "PORT": env("POSTGRES_PORT"),
     }
 }

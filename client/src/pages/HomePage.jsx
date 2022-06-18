@@ -12,7 +12,7 @@ const HomePage = () => {
                     <div className="d-flex justify-content-center">
                         <div className="text-center">
                             <h1 className="mx-auto my-0 text-uppercase">
-                                Nuspace 
+                                NewSpace 
                             </h1>
                             <h2 className="text-white-50 mx-auto mt-2 mb-5">
                                 Best Properties Listings with Reliable Realtors.

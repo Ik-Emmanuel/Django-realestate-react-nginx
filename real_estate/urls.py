@@ -19,8 +19,8 @@ urlpatterns = [
 
 
 
-admin.site.site_header = "Nuspace Real Estate Admin"
+admin.site.site_header = "NewSpace Real Estate Admin"
 admin.site.site_title = "Real Estate Admin Portal"
-admin.site.index_title = "Welcome to Nuspace real estate admin portal"
+admin.site.index_title = "Welcome to NewSpace Real estate admin portal"
 
 
