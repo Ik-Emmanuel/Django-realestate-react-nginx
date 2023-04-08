@@ -1,9 +1,7 @@
 from datetime import timedelta
-from ensurepip import version
 from pathlib import Path
 
 import environ
-
 env = environ.Env(DEBUG=(bool, False))
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -45,7 +43,13 @@ THIRD_PARTY_APPS = [
  
 ]
 
-LOCAL_APPS = ["apps.common", "apps.users", "apps.profiles", "apps.ratings", "apps.properties", "apps.enquiries"]
+LOCAL_APPS = [
+    "apps.common",
+    "apps.users", 
+    "apps.profiles",
+     "apps.ratings",
+     "apps.properties",
+    "apps.enquiries"]
 
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -137,7 +141,6 @@ CSRF_TRUSTED_ORIGINS = [
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
-
 TIME_ZONE = "Africa/Lagos"
 
 USE_I18N = True
@@ -205,15 +208,6 @@ DJOSER = {
     },
 }
 
-#Djose User registration Sample 
-# {
-# 	"username": "obicubana", 
-# 	"email": "obicubana@gmail.com",
-# 	"first_name": "Obi", 
-# 	"last_name": "Cubana", 
-# 	"password": "MEMEME2you", 
-# 	"re_password": "MEMEME2you" 
-# }
 
 import logging
 import logging.config
@@ -230,7 +224,7 @@ logging.config.dictConfig(
 
         "formatters": {
             "console": {
-                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
+                "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s", #12s and 8s specifies spaces between log texts 
             },
             "file": {"format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s"},
             "django.server": DEFAULT_LOGGING["formatters"]["django.server"],

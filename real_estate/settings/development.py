@@ -1,12 +1,9 @@
 from .base import *
-
-
-
 MY_ENV = "local"
 
 
-EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"  if MY_ENV == "docker" else "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"  if MY_ENV == "docker" else "django.core.mail.backends.smtp.EmailBackend"
 
 
 EMAIL_HOST = env("EMAIL_HOST") 

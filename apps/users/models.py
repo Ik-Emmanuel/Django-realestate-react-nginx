@@ -1,10 +1,8 @@
 import uuid
-
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
-
 from .managers import CustomUserManager
 
 
@@ -21,7 +19,6 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username", "first_name", "last_name"]
-
     objects= CustomUserManager()
 
     class Meta:

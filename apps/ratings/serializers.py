@@ -1,9 +1,9 @@
 from rest_framework import serializers
-
 from .models import Rating
 
 
 class RatingSerializer(serializers.ModelSerializer):
+    # how to serialize from multiple tables (FK and OnetoOne Fields)
     rater = serializers.SerializerMethodField(read_only=True)
     agent = serializers.SerializerMethodField(read_only=True)
 

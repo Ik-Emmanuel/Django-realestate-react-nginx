@@ -15,21 +15,16 @@ User = get_user_model()
 
 class PropertyPublishedManager(models.Manager):
     def get_queryset(self):
-        return (
-            super(PropertyPublishedManager, self)
+        return (super(PropertyPublishedManager, self)
             .get_queryset()
-            .filter(published_status=True)
-        )
+            .filter(published_status=True))
 
 
 class Property(TimeStampedUUIDModel):
-
-
     class AdvertType(models.TextChoices):
         FOR_SALE = "For Sale", _("For Sale")
         FOR_RENT = "For Rent", _("For Rent")
         AUCTION = "Auction", _("Auction")
-
     class PropertyType(models.TextChoices):
         HOUSE = "House", _("House")
         APARTMENT = "Apartment", _("Apartment")
@@ -100,3 +95,5 @@ class PropertyViews(TimeStampedUUIDModel):
     class Meta:
         verbose_name = "Total Views on Property"
         verbose_name_plural = "Total Property Views"
+
+

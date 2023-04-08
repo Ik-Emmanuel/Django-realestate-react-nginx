@@ -35,7 +35,7 @@ class TopAgentsListAPIView(generics.ListAPIView):
 
 
 class GetProfileAPIView(APIView):
-    """Gets the current users profile all iut needs is just a JWT token
+    """Gets the current users profile all it needs is just a JWT token
      gotten after sign in and permission classes handles the rest"""
     permission_classes = [permissions.IsAuthenticated]
     renderer_classes = [ProfileJSONRenderer]
